@@ -1,13 +1,14 @@
 import { Button, Form, Input, Steps, message } from "antd";
 import "antd/dist/reset.css";
 import axios from "axios"; // Axios for API requests
-import React, { useState } from "react";
+import cookies from "js-cookie";
+import React, { useEffect, useState } from "react";
 import { FcGoogle, FcPhone } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
-
 const { Step } = Steps;
 
 const Login: React.FC = () => {
+  const token = cookies.get("token");
   const [currentStep, setCurrentStep] = useState(0);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState("");
@@ -148,6 +149,12 @@ const Login: React.FC = () => {
       ),
     },
   ];
+
+  useEffect(() => {
+    if (token) {
+      navigate("/");
+    }
+  }, [navigate]);
 
   return (
     <div className="w-full min-h-screen grid grid-cols-1 lg:grid-cols-[60%_40%]">
