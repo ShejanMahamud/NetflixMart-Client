@@ -4,8 +4,8 @@ import Login from "../pages/Auth/Login";
 import LoginSuccess from "../pages/Auth/LoginSuccess";
 import Error from "../pages/Error";
 import Home from "../pages/Home";
+import ChatPage from "./../components/ChatPage";
 import PrivateRoute from "./PrivateRoute";
-
 const Route = createBrowserRouter([
   {
     path: "/",
@@ -18,6 +18,10 @@ const Route = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/chat",
+        element: <ChatPage />,
       },
     ],
     errorElement: <Error />,
