@@ -12,7 +12,7 @@ const RegisterForm = () => {
   const [form] = Form.useForm();
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const { photo, uploadProps } = usePhotoUpload();
+  const { uploadProps } = usePhotoUpload();
 
   const { mutateAsync } = useMutation({
     mutationFn: async (body) => {
